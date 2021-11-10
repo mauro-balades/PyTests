@@ -40,7 +40,7 @@ setup(
     author="Mauro Balades",
     author_email="mauro.balades@tutanota.com",
     url="https://github.com/mauro-balades/PyTests",
-    packages=["expross"],
+    packages=["pytests"],
     requirements=[
     ],
     classifiers=[

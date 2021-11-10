@@ -50,8 +50,38 @@ class PyTest:
   # TODO: make a single run() function
 
   def run_all(self):
-    pass
+    
+    for test in self._tests:
+      success = False
+
+      # Check if an error was expected
+      if test.error:
+        success = self._run_error_test(test)
+        self._print_result(success, test)
+        continue
+
+      # Run test and get result
+      result = test.test()
+      if result == test.result:
+        # If test result equals to the expected result
+        success = True
+
+      self._print_result(success, test)
+
+  def _print_result(self, result: bool, test: Test):
+    # TODO
+    print(result)
+
+  def _run_error_test(self, test: Test):
+    suc = False
+
+    try: test.test()
+    except test.error: suc = True
+    except: pass
+    finally: pass
+
+    return suc
 
   def _create_name(self):
     _len = len(self._tests)
-    return f"Test #{_len + 1}""
+    return f"Test #{_len + 1}"

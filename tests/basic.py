@@ -1,11 +1,3 @@
-# PyTests
-Write small or big tests with PyTests a testing framework
-
-## Usage
-
-NOTE: Things might change
-
-```py
 
 from pytests import PyTest
 
@@ -23,5 +15,3 @@ tests.new(
 )
 
 tests.run_all()
-
-```
