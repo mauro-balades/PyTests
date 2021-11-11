@@ -24,6 +24,9 @@ SOFTWARE.
 from dataclasses import dataclass
 from typing import Callable
 
+import time
+import math
+
 @dataclass
 class Test:
 
@@ -34,5 +37,13 @@ class Test:
     self.name = name
     self.description = description
     self.error = error
+    self.start = 0
 
-    
+  def start_clock(self):
+    self.start = time.time() * 1000
+
+  def stop_clock(self):
+    return "{:.2f}".format(self._stop_clock())
+
+  def _stop_clock(self):
+    return (time.time() * 1000) - self.start

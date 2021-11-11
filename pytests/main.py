@@ -24,6 +24,7 @@ SOFTWARE.
 
 from typing import Callable
 from pytests.test import Test
+from pytests.print import *
 
 class PyTest:
 
@@ -53,11 +54,12 @@ class PyTest:
     
     for test in self._tests:
       success = False
+      test.start_clock()
 
       # Check if an error was expected
       if test.error:
         success = self._run_error_test(test)
-        self._print_result(success, test)
+        self._print_result(success, test, result)
         continue
 
       # Run test and get result
@@ -66,12 +68,15 @@ class PyTest:
         # If test result equals to the expected result
         success = True
 
-      self._print_result(success, test)
+      self._print_result(success, test, result)
 
-  def _print_result(self, result: bool, test: Test):
-    # TODO
-    print(result)
+  def _print_result(self, result: bool, test: Test, res: any):
 
+    if result:
+      print_success(test)
+    else:
+      print_error(test, res)
+      
   def _run_error_test(self, test: Test):
     suc = False
 
