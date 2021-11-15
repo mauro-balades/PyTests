@@ -23,5 +23,6 @@ SOFTWARE.
 """
 
 from pytests.main import PyTest
+from pytests.__version__ import VERSION
 
-version = "0.0.1"
+version = VERSION

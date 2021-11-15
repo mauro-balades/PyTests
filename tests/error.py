@@ -1,20 +1,22 @@
-
 from pytests import PyTest
 
 tests = PyTest()
 
+
 class CustomException(Exception):
-  pass
+    pass
+
 
 def my_test():
-  raise CustomException
+    raise CustomException
+
 
 tests.new(
-  my_test, # Function with out calling
-  name="My test",
-  description="",
-  error=CustomException,
-  #....
+    my_test,  # Function with out calling
+    name="My test",
+    description="",
+    error=CustomException,
+    # ....
 )
 
 tests.run_all()

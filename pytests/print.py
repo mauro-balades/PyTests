@@ -96,9 +96,10 @@ BHWHT = "\033[1;97m"
 # Reset
 reset = "\033[0m"
 
+
 def print_success(test: Test):
-    print(f"{BLK}{GRNB} PASS {reset}", end=' ')
-    print(f"{test.test.__name__}, ", end='')
+    print(f"{BLK}{GRNB} PASS {reset}", end=" ")
+    print(f"{test.test.__name__}, ", end="")
 
     if test.result:
         print(f"result is {YEL}{test.result}{reset}")
@@ -112,16 +113,17 @@ def print_success(test: Test):
 
     print("")
 
+
 def print_error(test: Test, result: any):
-    print(f"{BLK}{REDB} FAIL {reset}", end=' ')
+    print(f"{BLK}{REDB} FAIL {reset}", end=" ")
     print(f"{test.test.__name__}")
     if test.description and test.description != "":
         print(f"  {BLK}└── {test.description}{reset}\n")
 
     if test.result:
-        print(f"  Expected result:\n    {GRN}{test.result}{reset}")
+        print(f"  Expected result: {GRN}{test.result}{reset}")
     elif test.error:
-        print(f"  Expected error:\n    {GRN}{test.error.__name__}{reset}")
+        print(f"  Expected error: {GRN}{test.error.__name__}{reset}")
 
-    print(f"  Recieved:\n    {RED}{result}{reset}")
+    print(f"  Recieved: {RED}{result}{reset}")
     print(f"\n  {RED}X{reset} {test.name} {CYN}({test.stop_clock()}ms){reset}\n")

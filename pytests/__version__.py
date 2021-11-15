@@ -21,36 +21,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-from dataclasses import dataclass
-from typing import Callable
 
-import time
-import math
-
-
-@dataclass
-class Test:
-    def __init__(
-        self,
-        test: Callable,
-        result: any = None,
-        name: str = None,
-        description: str = None,
-        error: Exception = None,
-    ):
-
-        self.test = test
-        self.result = result
-        self.name = name
-        self.description = description
-        self.error = error
-        self.start = 0
-
-    def start_clock(self):
-        self.start = time.time() * 1000
-
-    def stop_clock(self):
-        return "{:.2f}".format(self._stop_clock())
-
-    def _stop_clock(self):
-        return (time.time() * 1000) - self.start
+VERSION = "1.0.0"
