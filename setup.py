@@ -26,16 +26,16 @@ SOFTWARE.
 
 from setuptools import setup
 
-with open("pytests/__init__.py") as f:
+with open("pytests/__version__.py") as f:
     info = {}
     for line in f.readlines():
-        if line.startswith("version"):
+        if line.startswith("VERSION"):
             exec(line, info)
             break
 
 setup(
     name="PyTests",
-    version=info["version"],
+    version=info["VERSION"],
     description="Write small or big tests with PyTests a (testing framework)",
     author="Mauro Balades",
     author_email="mauro.balades@tutanota.com",
