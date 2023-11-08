@@ -125,5 +125,5 @@ def print_error(test: Test, result: any):
     elif test.error:
         print(f"  Expected error: {GRN}{test.error.__name__}{reset}")
 
-    print(f"  Recieved: {RED}{result}{reset}")
+    print(f"  Received: {RED}{result}{reset}")
     print(f"\n  {RED}X{reset} {test.name} {CYN}({test.stop_clock()}ms){reset}\n")
